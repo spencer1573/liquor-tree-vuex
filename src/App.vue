@@ -1,41 +1,29 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view /> -->
-    <tree
-      :data="data"
-      :options="options" />
+    <tree :data="data" :options="options" />
   </div>
 </template>
 <script>
-// import 
-import { dataOne } from './data/items-one.js'
+import Store from './store/index.js'
 
 export default {
   data() {
     return {
       options: {
         store: {
-          store: this.$store,
+          store: Store,
           getter: () => {
-            return this.$store.getters.tree
+            return Store.getters.tree
           },
           dispatcher(tree) {
-            this.$store.dispatch('updateTree', tree)
-          }
+            Store.dispatch('updateTree', tree)
+          },
         },
-        checkbox: true
-      }
+        checkbox: true,
+      },
+      data: [],
     }
   },
-  computed: {
-    data() {
-      return dataOne
-    }
-  }
 }
 </script>
 

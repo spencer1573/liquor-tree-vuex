@@ -3,14 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import { dataOne } from '../data/items-one.js'
+
 export default new Vuex.Store({
-  //   state: {},
-  //   mutations: {},
-  //   actions: {},
-  //   modules: {}
-  // });
   state: {
-    treeStore: [],
+    treeStore: dataOne,
   },
   mutations: {
     updateTreeStore(state, newTree) {
@@ -19,6 +16,7 @@ export default new Vuex.Store({
   },
   actions: {
     updateTree(context, tree) {
+      console.log('updated tree', context)
       context.commit('updateTreeStore', tree)
     },
   },
