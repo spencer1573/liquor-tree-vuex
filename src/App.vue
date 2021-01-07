@@ -6,7 +6,7 @@
               ref="tree"
             >
   </div>
- </template>
+</template>
 <script>
 
 import Store from './store/index.js'
